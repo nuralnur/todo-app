@@ -16,7 +16,7 @@ class Counter extends Component {
     render() {
         return (
             <div className="counter">
-                <button onClick={this.increament}>+1</button>
+                <button onClick={this.increament}>+{this.props.by}</button>
                 <span className="count">{this.state.counter}</span>
             </div>
         );
@@ -26,9 +26,13 @@ class Counter extends Component {
         // console.log('increament');
 
         this.setState({
-            counter : this.state.counter + 1
+            counter : this.state.counter + this.props.by
         });
     }
+}
+
+Counter.defaultProps = {
+    by: 1
 }
 
 export default Counter;

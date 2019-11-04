@@ -13,6 +13,7 @@ function App() {
   );
 }
 
+// used class level component
 /*function LearningComponents() {
   return (
     <div>

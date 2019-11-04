@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import './Counter.css'
-import CounterButton from "./CounterButton";
 
-class Counter extends Component {
+class CounterButton extends Component {
     // 1. define initial state in the constractor(state.counter=0)
     // 2. update state in your function(increament counter, counter++)
     constructor() {
@@ -17,21 +16,23 @@ class Counter extends Component {
     render() {
         return (
             <div className="counter">
-                <CounterButton by={1} incrementMethod={this.increment}/>
-                <CounterButton by={5} incrementMethod={this.increment}/>
-                <CounterButton by={10} incrementMethod={this.increment}/>
-
+                <button onClick={this.increment}>+{this.props.by}</button>
                 <span className="count">{this.state.counter}</span>
             </div>
         );
     }
 
-    increment(by) {
-        // console.log(`increment from child - ${by}`)
+    increment() {
         this.setState({
-            counter : this.state.counter + by
+            counter : this.state.counter + this.props.by
         });
+
+        this.props.incrementMethod(this.props.by);
     }
 }
 
-export default Counter;
+CounterButton.defaultProps = {
+    by: 1
+}
+
+export default CounterButton;

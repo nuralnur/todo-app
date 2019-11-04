@@ -15,6 +15,7 @@ function App() {
   );
 }
 
+// function comment
 function LearningComponents() {
   return (
     <div>
